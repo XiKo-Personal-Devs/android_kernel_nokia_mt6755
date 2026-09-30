@@ -93,6 +93,7 @@ endef
 dtbs: $(objtree)/dtboimg.cfg $(objtree)/dtbimg.cfg
 $(objtree)/dtboimg.cfg: FORCE
 	rm -f $@.tmp
+	: > $@.tmp
 	$(foreach f,$(ABS_DTB_FILES),$(call mk_dtboimg_cfg,$(f),$@.tmp))
 	@if [ ! -f $@.tmp ]; then \
 		echo "error: $@.tmp was not generated, ABS_DTB_FILES may be empty" >&2; \
