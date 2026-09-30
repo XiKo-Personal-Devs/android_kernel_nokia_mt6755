@@ -94,19 +94,28 @@ dtbs: $(objtree)/dtboimg.cfg $(objtree)/dtbimg.cfg
 $(objtree)/dtboimg.cfg: FORCE
 	rm -f $@.tmp
 	$(foreach f,$(ABS_DTB_FILES),$(call mk_dtboimg_cfg,$(f),$@.tmp))
-	if ! cmp -s $@.tmp $@; then \
-		mv $@.tmp $@; \
+	@if [ ! -f $@.tmp ]; then \
+		echo "error: $@.tmp was not generated, ABS_DTB_FILES may be empty" >&2; \
+		exit 1; \
+	fi
+	@if cmp -s $@.tmp $@; then \
+		rm -f $@.tmp; \
 	else \
-		rm $@.tmp; \
+		mv -f $@.tmp $@; \
 	fi
 
 $(objtree)/dtbimg.cfg: FORCE
 	rm -f $@.tmp
 	$(foreach f,$(ABS_DTB2_FILES),$(call mk_dtbimg_cfg,$(f),$@.tmp))
-	if ! cmp -s $@.tmp $@; then \
-		mv $@.tmp $@; \
-	else \
-		rm $@.tmp; \
+	@if [ ! -f $@.tmp ]; then \
+		echo "error: $@.tmp was not generated, ABS_DTB2_FILES may be empty" >&2; \
+		exit 1; \
 	fi
+	@if cmp -s $@.tmp $@; then \
+		rm -f $@.tmp; \
+	else \
+		mv -f $@.tmp $@; \
+	fi
+
 
 endif#MTK_PLATFORM
