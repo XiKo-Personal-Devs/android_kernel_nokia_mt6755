@@ -33,6 +33,54 @@ LCM_DSI_MODE_CON lcm_dsi_mode;
 #define LCD_DEBUG(fmt, args...)  pr_debug("[KERNEL/LCM]"fmt, ##args)
 #endif
 
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2015/09/14  Add SAMSUNG panel */
+extern LCM_DRIVER s6e3fa3_fhd_dsi_cmd_lcm_drv;
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2015/11/24  Add SAMSUNG panel for video mode*/
+extern LCM_DRIVER samsung_ea8064t_fhd_dsi_video_lcm_drv;
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2015/12/23  Add for boe panel */
+extern LCM_DRIVER ili9881c_fhd720_dsi_vdo_boe_lcm_drv;
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2016/1/14  Add for boe panel */
+extern LCM_DRIVER nt35521s_fhd720_dsi_vdo_truly_lcm_drv;
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2016/2/1  Add for tianma panel */
+extern LCM_DRIVER oppo_nt35521s_fhd720_dsi_vdo_tianma_lcm_drv;
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* guoling@Multimedia, 2016/2/17  Add for truly panel */
+extern LCM_DRIVER oppo_hx8394_truly_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo_hx8394_truly_g5d_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo_hx8394_tianma_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo_nt35521s_truly_g5d_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo_hx8394_truly_cpt_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo_nt35521s_boe_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo_jdi_r63452_fhd1080_dsi_cmd_lcm_drv;
+
+extern LCM_DRIVER oppo16021_hx8394_truly_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo16021_hx8394_tianma_hd720_dsi_vdo_lcm_drv;
+
+extern LCM_DRIVER oppo16021_hx8394_boe_hd720_dsi_vdo_lcm_drv;
+//#endif /*VENDOR_EDIT*/
+
 LCM_DRIVER *lcm_driver_list[] = {
 #if defined(NT36672_FHD_DSI_VDO_RT5081)
 	&nt36672_fhd_dsi_vdo_rt5081_lcm_drv,
@@ -1124,6 +1172,85 @@ unsigned char lcm_name_list[][128] = {
 #if defined(R63417_FHD_DSI_CMD_TRULY_NT50358_HD)
 	"r63417_fhd_dsi_cmd_truly_nt50358_hd_drv",
 #endif
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2015/09/14  Add SAMSUNG panel */
+#if defined(S6E3FA3_FHD_DSI_CMD)
+    &s6e3fa3_fhd_dsi_cmd_lcm_drv,
+#endif
+//#endif /*VENDOR_EDIT*/
+
+
+#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2015/11/24  Add SAMSUNG panel for video mode */
+#if defined(SAMSUNG_EA8064T_FHD_DSI_VIDEO)
+    &samsung_ea8064t_fhd_dsi_video_lcm_drv,
+#endif
+#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2015/12/23  Add for boe panel */
+#if defined(ILI9881C_FHD720_DSI_VDO_BOE)
+    &ili9881c_fhd720_dsi_vdo_boe_lcm_drv,
+#endif
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2016/1/14  Add for boe panel */
+#if defined(NT35521S_FHD720_DSI_VDO_TRULY)
+    &nt35521s_fhd720_dsi_vdo_truly_lcm_drv,
+#endif
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* liping-m@PhoneSW.Multimedia, 2016/1/14  Add for boe panel */
+#if defined(OPPO_NT35521S_FHD720_DSI_VDO_TIANMA)
+    &oppo_nt35521s_fhd720_dsi_vdo_tianma_lcm_drv,
+#endif
+//#endif /*VENDOR_EDIT*/
+
+//#ifdef VENDOR_EDIT
+/* guoling@Multimedia, 2016/2/17  Add for truly panel */
+#if defined(OPPO_HX8394_TRULY_HD720_DSI_VDO)
+    &oppo_hx8394_truly_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO_HX8394_TRULY_G5D_HD720_DSI_VDO)
+    &oppo_hx8394_truly_g5d_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO_HX8394_TRULY_CPT_HD720_DSI_VDO)
+    &oppo_hx8394_truly_cpt_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO_HX8394_TIANMA_HD720_DSI_VDO)
+    &oppo_hx8394_tianma_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO_NT35521S_TRULY_G5D_HD720_DSI_VDO)
+    &oppo_nt35521s_truly_g5d_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO_NT35521S_BOE_HD720_DSI_VDO)
+    &oppo_nt35521s_boe_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO_JDI_R63452_FHD1080_DSI_CMD)
+    &oppo_jdi_r63452_fhd1080_dsi_cmd_lcm_drv,
+#endif
+
+#if defined(OPPO16021_HX8394_TRULY_HD720_DSI_VDO)
+    &oppo16021_hx8394_truly_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO16021_HX8394_TIANMA_HD720_DSI_VDO)
+    &oppo16021_hx8394_tianma_hd720_dsi_vdo_lcm_drv,
+#endif
+
+#if defined(OPPO16021_HX8394_BOE_HD720_DSI_VDO)
+    &oppo16021_hx8394_boe_hd720_dsi_vdo_lcm_drv,
+#endif
+//#endif /*VENDOR_EDIT*/
 };
 
 #define LCM_COMPILE_ASSERT(condition) LCM_COMPILE_ASSERT_X(condition, __LINE__)

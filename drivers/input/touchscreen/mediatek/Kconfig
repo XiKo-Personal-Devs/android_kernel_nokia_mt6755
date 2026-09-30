@@ -307,4 +307,8 @@ config TOUCHSCREEN_MTK_NT36xxx
 	  module will be called.
 
 source "drivers/input/touchscreen/mediatek/NT36xxx/Kconfig"
+source "drivers/input/touchscreen/mediatek/oppo_16011_gt915/Kconfig"
+source "drivers/input/touchscreen/mediatek/oppo_15127_s3203/Kconfig"
+source "drivers/input/touchscreen/mediatek/oppo_15131_ft5336/Kconfig"
+source "drivers/input/touchscreen/mediatek/oppo_16021_gt5688/Kconfig"
 endif

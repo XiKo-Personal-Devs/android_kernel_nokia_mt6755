@@ -19,6 +19,65 @@ subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLA
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat
 subdir-ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/$(MTK_PLATFORM)
 
+# ifdef  VENDOR_EDIT
+# xiang.fei@Multimedia, 2015/10/16, Add for audio*/
+# ifneq ($(filter "oppo6750_15127" "oppo6750_16011" "oppo6750_15129",$(CONFIG_ARCH_MTK_PROJECT)),)
+KBUILD_CFLAGS +=   -DOPPO_MTK_MT6750_PROJECT
+KBUILD_CPPFLAGS += -DOPPO_MTK_MT6750_PROJECT
+CFLAGS_KERNEL +=  -DOPPO_MTK_MT6750_PROJECT
+CFLAGS_MODULE +=  -DOPPO_MTK_MT6750_PROJECT
+# endif
+# endif  
+
+# ifdef  VENDOR_EDIT
+# yuanyan@Multimedia, 2016/02/23, add for 15131
+# ifneq ($(filter "oppo6750_15131",$(CONFIG_ARCH_MTK_PROJECT)),)
+KBUILD_CFLAGS +=   -DOPPO_MTK_15131_PROJECT
+KBUILD_CPPFLAGS += -DOPPO_MTK_15131_PROJECT
+CFLAGS_KERNEL +=  -DOPPO_MTK_15131_PROJECT
+CFLAGS_MODULE +=  -DOPPO_MTK_15131_PROJECT
+# endif
+# endif
+
+# ifdef  VENDOR_EDIT
+# Jianfeng.Qiu@Swdp.Multimedia, 2016/04/18, Modify for 16021
+# ifneq ($(filter "oppo6750_16021",$(CONFIG_ARCH_MTK_PROJECT)),)
+KBUILD_CFLAGS +=   -DOPPO_MTK_16021_PROJECT
+KBUILD_CPPFLAGS += -DOPPO_MTK_16021_PROJECT
+CFLAGS_KERNEL +=  -DOPPO_MTK_16021_PROJECT
+CFLAGS_MODULE +=  -DOPPO_MTK_16021_PROJECT
+# endif
+
+# ifdef VENDOR_EDIT//wanghao@BSP.TP
+obj-y += oppo_devices_list/
+# endif
+# ifdef VENDOR_EDIT//yixue.ge@bsp.drv add for oppo project
+obj-y += oppo_project/
+obj-y += oppo_custom/
+# endif
+
+#i fdef VENDOR_EDIT
+# //jie.cheng@swdh.sh, 2016/04/15, Add hypnus helper
+obj-y     +=  oppo_hypnus/
+# endif /* VENDOR_EDIT */
+
+# ifdef VENDOR_EDIT
+# Yixue.ge@BSP.drv, 2016/01/21, Add for support oppo dev info
+obj-$(CONFIG_OPPO_DEVICE_IFNO) += oppo_devinfo/
+# endif
+
+# ifdef VENDOR_EDIT
+# yongzhi.zhang@Multimedia, 2016/04/28, add for criticallog in kernel
+obj-y     +=  oppo_criticallog/
+#endif
+
+# Haitao.Zhou@Prd.BaseDrv, 2015/10/28, Add for FPC normal world driver start
+# ifeq ($(CONFIG_FINGERPRINT_SUPPORT),y)
+obj-y += fpc/
+# endif
+# Haitao.Zhou@Prd.BaseDrv, 2015/10/28, Add for FPC normal world driver end
+
+
 obj-$(CONFIG_MTK_EMI_MPU)	+= emi_mpu/
 obj-$(CONFIG_MTK_DCS) += mtkdcs/
 obj-$(CONFIG_MTK_BASE_POWER) += base/

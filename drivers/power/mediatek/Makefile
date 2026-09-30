@@ -26,6 +26,7 @@ ifeq ($(CONFIG_MTK_HAFG_20),y)
 else
 obj-$(CONFIG_MTK_SMART_BATTERY) += battery_meter.o battery_common.o
 endif
+obj-$(CONFIG_OPPO_CHARGER)      += oppo/
 
 ifneq (user,$(TARGET_BUILD_VARIANT))
 	subdir-ccflags-y += -DCONFIG_DEBUG_CHG

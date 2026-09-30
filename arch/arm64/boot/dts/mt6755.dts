@@ -1477,7 +1477,7 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 				compatible = "mediatek,usb_iddig_bi_eint";
 				interrupt-parent = <&eintc>;
 				interrupts = <144 IRQ_TYPE_LEVEL_LOW>;
-				debounce = <144 0>;
+				debounce = <144 256>;
 			};
 		};
 
@@ -2174,6 +2174,18 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 		battery {
 			compatible = "mediatek,battery";
 		};
+		
+//#ifdef VENDOR_EDIT//Fanhong.Kong@ProDrv.CHG,modified 2015.9.30 for charging
+		BQ2202A_EPROM {
+			compatible = "oppo,bq2202a-eprom";
+		};
+		
+		
+		BAT_VOOC {
+			compatible = "oppo,vooc_fastcg";
+		};
+		
+//#endif/*VENDOR_EDIT*/
 
 		flashlight: flashlight {
 			compatible = "mediatek,mt6755-flashlight";
@@ -3129,7 +3141,22 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 		mediatek,clkbuf-config = <2 1 1 2>;
 		mediatek,clkbuf-driving-current = <2 2 2 2>;
 	};
-
+	touch_panel: touch_panel {
+	};
+	msdc1_ins: msdc1_ins {
+	};
+	mse: mse {
+	};
+	als: als {
+	};
+	mrdump_ext_rst: mrdump_ext_rst {
+	};
+	irq_nfc: irq_nfc {
+	};
+	auxadc: auxadc {
+	};
+	ext_buck_oc: ext_buck_oc {
+        };
 	ext_buck_vmd1:ext_buck_vmd1 {
 		compatible = "mediatek,ext_buck_vmd1";
 	};
@@ -3138,7 +3165,7 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 			compatible = "android,firmware";
 			fstab {
 				compatible = "android,fstab";
-#if !defined(CONFIG_SYSTEM_AS_ROOT) && !defined(CONFIG_MTK_AB_OTA_UPDATER)
+/*#if !defined(CONFIG_SYSTEM_AS_ROOT) && !defined(CONFIG_MTK_AB_OTA_UPDATER)
 				system {
 					compatible = "android,system";
 					dev = "/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system";
@@ -3184,7 +3211,14 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 					fsmgr_flags = "wait,slotselect";
 #endif
 				};
-#endif
+#endif*/
+                system {
+					compatible = "android,system";
+					dev = "/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system";
+					type = "ext4";
+					mnt_flags = "ro";
+					fsmgr_flags = "wait"
+				};
 			};
 		};
 	};

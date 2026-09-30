@@ -467,6 +467,19 @@ source "drivers/misc/mediatek/teei/Kconfig"
 source "drivers/misc/mediatek/trustzone/Kconfig"
 source "drivers/misc/mediatek/watchpoint/Kconfig"
 source "drivers/misc/mediatek/rt-regmap/Kconfig"
+# ifdef VENDOR_EDIT
+# Yixue.ge@BSP.drv, 2016/01/21, Add for support oppo dev info
+source "drivers/misc/mediatek/oppo_devinfo/Kconfig"
+# endif
+# ifdef VENDOR_EDIT
+# //jie.cheng@swdp.sh, 2016/04/15, Add hypnus helper
+source "drivers/misc/mediatek/oppo_hypnus/Kconfig"
+# endif /* VENDOR_EDIT */
+
+# ifdef VENDOR_EDIT
+#yongzhi.zhang@Multimedia, 2016/04/28, add for criticallog in kernel
+source "drivers/misc/mediatek/oppo_criticallog/Kconfig"
+# endif
 
 config MTK_DM_VERITY_OFF
 	bool "Disable dm-verity"

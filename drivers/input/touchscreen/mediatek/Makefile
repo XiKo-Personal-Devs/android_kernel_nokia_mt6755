@@ -27,3 +27,23 @@ obj-$(CONFIG_TOUCHSCREEN_MTK_FOCALTECH_TS_FT8613)	+=  focaltech_touch_ft8613/
 obj-$(CONFIG_TOUCHSCREEN_MTK_FOCALTECH_TS_FT8719)	+=  focaltech_touch_ft8719/
 obj-$(CONFIG_TOUCHSCREEN_NT36xxx)	+=  nt36672/
 obj-$(CONFIG_TOUCHSCREEN_HIMAX_83103) += hx83103/
+
+ifeq ($(CONFIG_TOUCHSCREEN_MTK_MSG28XX),y)
+obj-y	+=  Msg28xx/
+endif
+
+ifeq ($(CONFIG_OPPO_TOUCHPANEL_GOODIX),y)
+obj-y	+=  oppo_16011_gt915/
+endif
+
+ifeq ($(CONFIG_OPPO_TOUCHPANEL_SYNAPTICS),y)
+obj-y	+=  oppo_15127_s3203/
+endif
+
+ifeq ($(CONFIG_OPPO_TOUCHPANEL_FT5436),y)
+obj-y	+=  oppo_15131_ft5336/
+endif
+
+ifeq ($(CONFIG_OPPO_TOUCHPANEL_GT5688),y)
+obj-y	+=  oppo_16021_gt5688/
+endif
