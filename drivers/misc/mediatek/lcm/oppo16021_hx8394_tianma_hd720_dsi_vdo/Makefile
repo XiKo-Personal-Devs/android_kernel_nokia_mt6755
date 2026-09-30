@@ -1,8 +1,8 @@
 
 # Makefile for misc devices that really don't fit anywhere else.
 #
-include $(srctree)/drivers/misc/mediatek/Makefile.custom
-subdir-ccflags-y += -Werror
+#include $(srctree)/drivers/misc/mediatek/Makefile.custom
+#subdir-ccflags-y += -Werror
 obj-y += oppo16021_hx8394_tianma_hd720_dsi_vdo.o
 obj-y += Bl_lm3697.o
 #obj-y += tps65132.o
